@@ -1,1 +1,1 @@
-# formulario-lista-angular
+cadastro com uma lista feita com array 
