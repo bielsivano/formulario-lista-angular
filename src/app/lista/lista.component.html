@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="container">
+      <h3>Funcionarios Cadastrados</h3>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>primeiro nome</th>
+                  <th>ultimo nome</th>
+                  <th>Cargo</th>
+                  <th>ano de Cadastro</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let funcionarios of listafuncionario; let i = index">
+                  <td>{{ funcionarios.primero_nome }}</td>
+                  <td>{{ funcionarios.ultimo_nome }}</td>
+                  <td>{{ funcionarios.cargo }}</td>
+                  <td>{{ funcionarios.anoderegistro }}</td>
+                    <td>
+                      <a href="#" (click)="excluirFuncionario(i)" class="btn btn-danger">Excluir</a>
+                      <a href="#" (click)= "editarfuncionario(i)" class="btn btn-warning">editar</a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
