@@ -16,5 +16,5 @@
     constructor(private formularioService: FormularioService) {}
 
     adicionarfuncionario() {
-      this.formularioService.adicionar(this.nome, this.Cargo, this.Cargo, this.anoDeCadastro);  }
+      this.formularioService.adicionar(this.nome, this.Cargo, this.ultmo_nome, this.anoDeCadastro);  }
   }
