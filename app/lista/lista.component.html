@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="container">
+    <h3>Funcionarios Cadastrados</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>primeiro nome</th>
+          <th>ultimo nome</th>
+          <th>Cargo</th>
+          <th>Ano de Registro</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let funcionarios of listafuncionarios; let i = index">
+          <ng-container *ngIf="funcionariosEditIndex !== i">
+            <tr>
+              <td>{{ funcionarios.primero_nome }}</td>
+              <td>{{ funcionarios.ultimo_nome }}</td>
+              <td>{{ funcionarios.cargo }}</td>
+              <td>{{ funcionarios.anoderegistro }}</td>
+              <td class="actions">
+                <a href="#" (click)="excluirfuncionario(i)" class="btn btn-danger">Excluir</a>
+                <a href="#" (click)="editarfuncionario(i)" class="btn btn-primary">Editar</a>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="funcionariosEditIndex === i">
+            <tr>
+              <td><input type="text" [(ngModel)]="listafuncionarios[i].primero_nome" /></td>
+              <td><input type="text" [(ngModel)]="listafuncionarios[i].ultimo_nome" /></td>
+              <td>
+                <select class="form-control" [(ngModel)]="listafuncionarios[i].cargo">
+                  <option value="Desenvolvedor">Desenvolvedor</option>
+                  <option value="Gerente">Gerente</option>
+                  <option value="Analista">Analista</option>
+                  <option value="Suporte">Suporte</option>
+                </select>
+              </td>
+              <td><input type="number" [(ngModel)]="listafuncionarios[i].anoderegistro" /></td>
+              <td class="actions">
+                <a (click)="excluirfuncionario(i)" class="btn btn-danger">Excluir</a>
+                <a (click)="salvarEdicao(i)" class="btn btn-success">Salvar</a>
+                <a (click)="cancelarEdicao()" class="btn btn-warning">Cancelar</a>
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <router-outlet></router-outlet>
+</div>
